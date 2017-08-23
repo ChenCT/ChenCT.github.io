@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="所以是好了吗？？">
+<meta name="description" content="首先声明，这是一篇水货，但，如题，效果还是可以达到的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ohuo-first blog">
-<meta property="og:url" content="http://yoursite.com/2017/08/06/ohuo-first-blog/index.html">
+<meta property="og:title" content="详情页返回列表页时回到原来位置">
+<meta property="og:url" content="http://yoursite.com/2017/08/23/详情页返回列表页时回到原来位置/index.html">
 <meta property="og:site_name" content="ohuo BLOG">
-<meta property="og:description" content="所以是好了吗？？">
+<meta property="og:description" content="首先声明，这是一篇水货，但，如题，效果还是可以达到的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-19T09:14:39.187Z">
+<meta property="og:updated_time" content="2017-08-23T09:37:07.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ohuo-first blog">
-<meta name="twitter:description" content="所以是好了吗？？">
+<meta name="twitter:title" content="详情页返回列表页时回到原来位置">
+<meta name="twitter:description" content="首先声明，这是一篇水货，但，如题，效果还是可以达到的">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/06/ohuo-first-blog/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/23/详情页返回列表页时回到原来位置/"/>
 
 
 
 
 
-  <title>ohuo-first blog | ohuo BLOG</title>
+  <title>详情页返回列表页时回到原来位置 | ohuo BLOG</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/06/ohuo-first-blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/23/详情页返回列表页时回到原来位置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ohuo">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ohuo-first blog</h1>
+          <h1 class="post-title" itemprop="name headline">详情页返回列表页时回到原来位置</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T15:26:39+08:00">
-                2017-08-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T16:44:44+08:00">
+                2017-08-23
               </time>
             
 
@@ -334,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/乱七八糟/" itemprop="url" rel="index">
-                    <span itemprop="name">乱七八糟</span>
+                  <a href="/categories/Web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端</span>
                   </a>
                 </span>
 
@@ -371,13 +371,11 @@
       
 
       
-        <p>所以是好了吗？？</p>
+        <p>首先声明，这是一篇水货，但，如题，效果还是可以达到的</p>
 <a id="more"></a>
-<p>脑子不太好使  上一次可能十天半月前 搭了一次 未果<br>今天又一次 终于啊有个壳了</p>
-<p>附上今天觉得最有用的详细教程 甩出链接 <a href="http://blog.liuxianan.com/build-blog-website-by-hexo-github.html" target="_blank" rel="external">http://blog.liuxianan.com/build-blog-website-by-hexo-github.html</a></p>
-<p>看教程搭博客一起玩啊喂各位~ (此处有一个颜文字)</p>
-<p>搜狗输入法添加个颜文字应用半天找不到添加在哪里 匿了匿了</p>
-<p>绩效考核表忘记写 哭 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">	&lt;!-- 列表页 --&gt;</div><div class="line">	&lt;div id=<span class="string">"list"</span> style=<span class="string">"display:block"</span>&gt;</div><div class="line">	&lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">	&lt;!-- 详情页 --&gt;</span></div><div class="line"><span class="regexp">	&lt;div id="detail" style="display:none;left:100%"&gt;</span></div><div class="line"><span class="regexp">	&lt;/</span>div&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<p>点击进入详情页后 <code>$(&quot;#detail&quot;).css({&quot;display&quot;:&quot;block&quot;});</code>    <code>$(&quot;#list&quot;).css({&quot;display&quot;:&quot;none&quot;});</code><br>点击回退列表页  <code>$(&quot;#detail&quot;).css({&quot;display&quot;:&quot;none&quot;});</code>    <code>$(&quot;#list&quot;).css({&quot;display&quot;:&quot;block&quot;});</code></p>
+<p>好了 到这里 其实已经完了 超水<br>如果想要看起来不那么low 可以设置动画 让详情页从页面右侧滑出 回退时再滑到右边</p>
 
       
     </div>
@@ -402,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/06/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/08/19/分享一些个人觉得挺好的网站/" rel="next" title="分享一些个人觉得挺好的网站">
+                <i class="fa fa-chevron-left"></i> 分享一些个人觉得挺好的网站
               </a>
             
           </div>
@@ -411,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/19/HTML5-datalist-可手动输入又可选择的input框/" rel="prev" title="HTML5 datalist--可手动输入又可选择的input框">
-                HTML5 datalist--可手动输入又可选择的input框 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
