@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="ohuo BLOG">
 <meta property="og:description" content="Vue简介Vue.js是一套构建用户界面的渐进式框架，是当下很火的一个JavaScript MVVM库。MVVM模式（Model-View-ViewModel）ViewModel是Vue.js的核心，是一个Vue实例。使用Vue的过程就是定义MVVM各个组成部分的过程。 将ViewModel中DOM Listeners和Data Bindings看作两个工具，它们是实现双向绑定的关键。从View侧">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-14T06:01:47.398Z">
+<meta property="og:updated_time" content="2017-09-16T02:46:37.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue.js--入门（1）">
 <meta name="twitter:description" content="Vue简介Vue.js是一套构建用户界面的渐进式框架，是当下很火的一个JavaScript MVVM库。MVVM模式（Model-View-ViewModel）ViewModel是Vue.js的核心，是一个Vue实例。使用Vue的过程就是定义MVVM各个组成部分的过程。 将ViewModel中DOM Listeners和Data Bindings看作两个工具，它们是实现双向绑定的关键。从View侧">
@@ -393,7 +393,7 @@
 <h3 id="v-on指令"><a href="#v-on指令" class="headerlink" title="v-on指令"></a>v-on指令</h3><p>v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的，例如监听&lt;a&gt;元素的点击事件：<br><code>&lt;a v-on:click=&quot;doSomething&quot;&gt;</code><br><strong>有两种形式调用方法：绑定一个方法（让事件指向方法的引用），或者使用内联语句。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">        &lt;title&gt;&lt;/title&gt;</div><div class="line">    &lt;<span class="regexp">/head&gt;</span></div><div class="line"><span class="regexp">    &lt;body&gt;</span></div><div class="line"><span class="regexp">        &lt;div id="app"&gt;</span></div><div class="line"><span class="regexp">            &lt;p&gt;&lt;input type="text" v-model="message"&gt;&lt;/</span>p&gt;</div><div class="line">            &lt;p&gt;</div><div class="line">                &lt;!--click事件直接绑定一个方法--&gt;</div><div class="line">                &lt;button v-on:click=<span class="string">"greet"</span>&gt;Greet&lt;<span class="regexp">/button&gt;</span></div><div class="line"><span class="regexp">            &lt;/</span>p&gt;</div><div class="line">            &lt;p&gt;</div><div class="line">                &lt;!--click事件使用内联语句--&gt;</div><div class="line">                &lt;button v-on:click=<span class="string">"say('Hi')"</span>&gt;Hi&lt;<span class="regexp">/button&gt;</span></div><div class="line"><span class="regexp">            &lt;/</span>p&gt;</div><div class="line">        &lt;<span class="regexp">/div&gt;</span></div><div class="line"><span class="regexp">    &lt;/</span>body&gt;</div><div class="line">    &lt;script src=<span class="string">"https://unpkg.com/vue"</span>&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">            el: <span class="string">'#app'</span>,</div><div class="line">            data: &#123;</div><div class="line">                message: <span class="string">'Hello, Vue.js!'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="comment">// 在 `methods` 对象中定义方法</span></div><div class="line">            methods: &#123;</div><div class="line">                greet: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="comment">// // 方法内 `this` 指向 vm</span></div><div class="line">                    alert(<span class="keyword">this</span>.message)</div><div class="line">                &#125;,</div><div class="line">                say: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">                    alert(msg)</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &lt;<span class="regexp">/script&gt;</span></div><div class="line"><span class="regexp">&lt;/</span>html&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="v-bind和v-on的缩写"><a href="#v-bind和v-on的缩写" class="headerlink" title="v-bind和v-on的缩写"></a>v-bind和v-on的缩写</h3><p>Vue.js为最常用的两个指令v-bind和v-on提供了缩写方式。<strong>v-bind指令可以缩写为一个冒号，v-on指令可以缩写为@符号。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!--完整语法--&gt;</div><div class="line">&lt;a href=<span class="string">"javascripit:void(0)"</span> v-bind:<span class="class"><span class="keyword">class</span></span>=<span class="string">"activeNumber === n + 1 ? 'active' : ''"</span>&gt;&#123;&#123; n + <span class="number">1</span> &#125;&#125;&lt;<span class="regexp">/a&gt;</span></div><div class="line"><span class="regexp">&lt;!--缩写语法--&gt;</span></div><div class="line"><span class="regexp">&lt;a href="javascripit:void(0)" :class="activeNumber=== n + 1 ? 'active' : ''"&gt;&#123;&#123; n + 1 &#125;&#125;&lt;/</span>a&gt;</div><div class="line"></div><div class="line">&lt;!--完整语法--&gt;</div><div class="line">&lt;button v-on:click=<span class="string">"greet"</span>&gt;Greet&lt;<span class="regexp">/button&gt;</span></div><div class="line"><span class="regexp">&lt;!--缩写语法--&gt;</span></div><div class="line"><span class="regexp">&lt;button @click="greet"&gt;Greet&lt;/</span>button&gt;</div></pre></td></tr></table></figure></p>
 <hr>
-<p>原文链接<a href="http://www.cnblogs.com/keepfool/p/5619070.html" target="_blank" rel="external">http://www.cnblogs.com/keepfool/p/5619070.html</a></p>
+<p>原文链接:<a href="http://www.cnblogs.com/keepfool/p/5619070.html" target="_blank" rel="external">http://www.cnblogs.com/keepfool/p/5619070.html</a></p>
 
       
     </div>
@@ -590,7 +590,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -610,6 +612,11 @@
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
+</div>
+<div>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
 </div>
 
 
