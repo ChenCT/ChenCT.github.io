@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="ohuo BLOG">
 <meta property="og:description" content="关于递归，最经典的是阶乘递归，写一个阶乘递归相信很多人都没问题，巴拉巴拉一阵乱敲如下1234567function factorial (num) &amp;#123;	if (num &amp;lt;= 1) &amp;#123;		return 1;	&amp;#125; else &amp;#123;		return num * factorial(num-1);	&amp;#125;&amp;#125; 上面的函数看起来没什么问题，但函数名与函">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-08T06:27:17.735Z">
+<meta property="og:updated_time" content="2017-11-08T06:29:09.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数递归">
 <meta name="twitter:description" content="关于递归，最经典的是阶乘递归，写一个阶乘递归相信很多人都没问题，巴拉巴拉一阵乱敲如下1234567function factorial (num) &amp;#123;	if (num &amp;lt;= 1) &amp;#123;		return 1;	&amp;#125; else &amp;#123;		return num * factorial(num-1);	&amp;#125;&amp;#125; 上面的函数看起来没什么问题，但函数名与函">
@@ -365,7 +365,7 @@
 <p>上面的函数看起来没什么问题，但函数名与函数高耦合，如果不慎重写了函数或者其他的一些情况就会导致出错，其他的情况指什么情况呢？<br>like this<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> anotherFactorial = factorial;</div><div class="line">factorial = <span class="literal">null</span>;</div><div class="line">alert(anotherFactorial(<span class="number">4</span>));  <span class="comment">//出错</span></div></pre></td></tr></table></figure></p>
 <p>以上代码先将factorial()函数保存在变量anotherFactorial中，然后将factorial变量置为null，结果指向原始函数的引用只剩下一个，但在调用anotherFactorial()时必须执行factorial()，而此时factorial()已不再是函数，出错！</p>
 <a id="more"></a>
-<p><strong>arguments.callee</strong><br>如何解决上面的问题，当当当当，arguments.callee！ 一个指向正在执行的函数的指针，修改后代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> num * <span class="built_in">arguments</span>.callee(num<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="arguments-callee"><a href="#arguments-callee" class="headerlink" title="arguments.callee"></a>arguments.callee</h2><p>如何解决上面的问题，当当当当，arguments.callee！ 一个指向正在执行的函数的指针，修改后代码如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> num * <span class="built_in">arguments</span>.callee(num<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后还有个问题，严格模式下，不能通过脚本访问arguments.callee，访问此属性会出错，那就，使用命名函数表达式达成相同结果，例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> factorial = (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (num &lt;= <span class="number">1</span>) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> num * f(num<span class="number">-1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>以上代码创建了一个名为f()的命名函数表达式，然后将它赋值给变量factorial。即便把函数赋值给了另一个变量，函数名f仍然有效，递归调用照样能完成。这种方式在严格模式和非严格模式下都可以。</p>
 
@@ -452,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -515,6 +524,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#arguments-callee"><span class="nav-number">1.</span> <span class="nav-text">arguments.callee</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
